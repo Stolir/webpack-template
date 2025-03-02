@@ -1,13 +1,13 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
-const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
+import eslintConfigPrettier from "eslint-config-prettier";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  {languageOptions: { globals: globals.browser }},
+  {
+    languageOptions: { globals: globals.browser },
+    ignores: ["**/node_modules/**", "dist/**"],
+  },
   pluginJs.configs.recommended,
-];
-
-module.exports = [
-  eslintPluginPrettierRecommended,
+  eslintConfigPrettier,
 ];
